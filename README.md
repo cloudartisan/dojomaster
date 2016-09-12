@@ -1,6 +1,29 @@
 # Contributing
 
+## Vagrant
+
+It's as simple as:
+
+```
+vagrant up
+```
+
+Then to connect:
+
+```
+vagrant ssh
+```
+
+And to start the web application:
+
+```
+drs
+```
+
 ## Virtual Environment
+
+Alternatively, to develop using a local virtual environment, do the following
+setup and initialisation.
 
 ### Setup
 
@@ -27,3 +50,4 @@ environment.
 ```
 flake8 --install-hook
 ```
+
