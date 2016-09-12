@@ -41,7 +41,9 @@ pip install autoenv
 cd .
 ```
 
-## Pre-Commit Hook
+## Development
+
+### Pre-Commit Hook
 
 Depends on `flake8` which is in `config/requirements/dev.txt`. If you followed
 the Virtual Environment instructions it will already be installed in your
@@ -51,3 +53,6 @@ environment.
 flake8 --install-hook
 ```
 
+### Frontend Framework
+
+DojoMaster uses Twitter Bootstrap-SASS (v3.2.0).
