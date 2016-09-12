@@ -1,5 +1,5 @@
 {
-  "name": "django-base-site",
+  "name": "dojomaster",
   "license": "MIT",
   "devDependencies": {
     "bootstrap-sass": "^3.3.6",
