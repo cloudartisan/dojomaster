@@ -17,3 +17,13 @@ pip install autoenv
 ```
 cd .
 ```
+
+## Pre-Commit Hook
+
+Depends on `flake8` which is in `config/requirements/dev.txt`. If you followed
+the Virtual Environment instructions it will already be installed in your
+environment.
+
+```
+flake8 --install-hook
+```
