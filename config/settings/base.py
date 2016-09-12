@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'compressor',
     'allauth',
     'allauth.account',
+    # dojomaster application components
+    'dojomaster',
 )
 
 TEMPLATES = [
@@ -114,7 +116,7 @@ STATICFILES_FINDERS = (
 )
 
 SITE_ID = 1
-SITE_NAME = 'Django Base Site'
+SITE_NAME = 'DojoMaster'
 GRAPPELLI_ADMIN_TITLE = SITE_NAME
 
 # ALLAUTH SETTINGS
