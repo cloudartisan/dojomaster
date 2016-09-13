@@ -5,15 +5,13 @@ DEBUG = True
 
 INTERNAL_IPS = ('127.0.0.1', '10.0.2.2')
 
-# Example Gmail settings if you need to send email from a local Django dev
-# site. Uncomment the following and change the username and password to
-# whatever they are for your Gmail account. Make sure don't use Gmail for
-# sending email on a production website.
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'username@gmail.com'
-# EMAIL_HOST_PASSWORD = 'xxxxxxxx'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+# Use Maildump for development environments, see README.md for instructions.
+# Don't use this in production!
+EMAIL_HOST = '127.0.0.1'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 2525
+EMAIL_USE_TLS = False
 
 # ADMINS = (
 #     ('Your Name', 'username@example.com'),
