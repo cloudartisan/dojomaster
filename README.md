@@ -1,5 +1,8 @@
 # Development Environment
 
+There are 2 primary ways to setup the development environment: using
+Vagrant or using virtualenv.
+
 ## Vagrant
 
 It's as simple as:
@@ -27,6 +30,8 @@ setup and initialisation.
 
 ### Setup
 
+Install the pre-requisites:
+
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install python
@@ -35,10 +40,42 @@ pip install virtualenvwrapper
 pip install autoenv
 ```
 
-### Initialisation
+Add something like the following to `$HOME/.bash_profile`:
 
 ```
-cd .
+if [ ! -z "$(which virtualenvwrapper.sh)" ]
+then
+  export WORKON_HOME=$HOME/.virtualenvs
+  mkdir -p $WORKON_HOME
+  . `which virtualenvwrapper.sh`
+fi
+
+if [ ! -z "$(which activate.sh)" ]
+then
+  . `which activate.sh`
+fi
+```
+
+Then reload:
+
+```
+. $HOME/.bash_profile
+```
+
+That will add `autoenv` support to your shell.
+
+### Use
+
+Now, whenever you cd to the top-level of the dojomaster project you
+will have your virtual environment initialised. E.g.:
+
+```
+neuromancer:~ $ cd git/cloudartisan/dojomaster/
+New python executable in /Users/david/.virtualenvs/dojomaster/bin/python2.7
+Not overwriting existing python script /Users/david/.virtualenvs/dojomaster/bin/python (you must use /Users/david/.virtualenvs/dojomaster/bin/python2.7)
+Installing setuptools, pip, wheel...done.
+[...]
+(dojomaster) neuromancer:~/git/cloudartisan/dojomaster (master)$
 ```
 
 # Development
@@ -77,12 +114,17 @@ If you're using the virtualenv development environment.
 #### Install Maildump
 
 If you followed the Virtual Environment instructions it should
-already be installed and running in your environment.
+already be installed.
 
 If not:
 
 ```
 pip install maildump
+```
+
+To run, simply:
+
+```
 maildump --smtp-ip 127.0.0.1 --smtp-port 2525 --http-ip 127.0.0.1 --http-port 8888
 ```
 
