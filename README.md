@@ -64,10 +64,24 @@ Then reload:
 
 That will add `autoenv` support to your shell.
 
+Next, create a `.env` file inside the project root that contains:
+
+```
+# Only initialise the virtual environment upon cd'ing to the top level
+BASE_PATH=`dirname "${BASH_SOURCE}"`
+PWD=`pwd`
+if [[ "${BASE_PATH}" == "${PWD}" ]]
+then
+  mkvirtualenv dojomaster
+  workon dojomaster
+  pip install -r config/requirements/dev.txt
+fi
+```
+
 ### Use
 
 Now, whenever you cd to the top-level of the dojomaster project you
-will have your virtual environment initialised. E.g.:
+should have your virtual environment initialised. E.g.:
 
 ```
 neuromancer:~ $ cd git/cloudartisan/dojomaster/
