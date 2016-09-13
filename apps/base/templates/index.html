@@ -11,7 +11,9 @@
                 <h1>{{ SITE_NAME }}</h1>
                 <p>Simplify management of your Martial Arts School</p>
                 <p><small>Manage your classes and students and track their attendance</small></p>
-                <p><a href="/signup" class="btn btn-primary btn-lg" target="_blank">Sign Up &raquo;</a></p>
+                {% if not user.is_authenticated %}
+                    <p><a href="/signup" class="btn btn-primary btn-lg" target="_blank">Sign Up &raquo;</a></p>
+                {% endif %}
             </div>
         </div>
     </div>
