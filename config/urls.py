@@ -20,9 +20,14 @@ urlpatterns += [
     url(r'^grappelli/', include('grappelli.urls')),
 ]
 
-# Project Urls
+# Project URLs
 urlpatterns += [
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^accounts/name/$', NameChange.as_view(), name='account_change_name'),
     url(r'^accounts/', include('allauth.urls')),
+]
+
+# Application URLs
+urlpatterns += [
+    url(r'^school/', include('apps.school.urls')),
 ]

@@ -3,3 +3,5 @@ django-bootstrap-form>=3.2,<3.3
 django-grappelli>=2.8.1,<2.9
 Django>=1.9.8,<1.10
 django_compressor>=2.0,<2.1
+phonenumbers>=7.6.0,<7.7
+django-phonenumber-field>=1.1.0,<1.2

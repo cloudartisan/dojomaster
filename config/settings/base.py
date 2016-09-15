@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     # dojomaster application components
-    'apps.dojomaster',
+    'apps.school',
+    'apps.students',
 )
 
 TEMPLATES = [
