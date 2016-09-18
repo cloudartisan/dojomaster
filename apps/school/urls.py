@@ -1,7 +1,10 @@
-from django.conf.urls import url
+from django.conf.urls import include, url
 
 import views
 
-urlpatterns = [
-    url(r'^$', views.index, name='index'),
+from organizations.backends import invitation_backend
+from organizations.urls import urlpatterns
+
+urlpatterns += [
+    url(r'^invitations/', include(invitation_backend().get_urls())),
 ]
