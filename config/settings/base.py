@@ -40,8 +40,11 @@ INSTALLED_APPS = (
     'organizations',
     'overextends',
     # dojomaster application components
-    'apps.school',
+    'apps.dashboard',
+    'apps.clubs',
+    'apps.schools',
     'apps.students',
+    'apps.classes',
 )
 
 TEMPLATES = [

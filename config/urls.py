@@ -29,5 +29,9 @@ urlpatterns += [
 
 # Application URLs
 urlpatterns += [
-    url(r'^school/', include('apps.school.urls')),
+    url(r'^clubs/', include('apps.clubs.urls')),
+    # FIXME
+    #url(r'^schools/', include('apps.schools.urls')),
+    #url(r'^students/', include('apps.students.urls')),
+    #url(r'^classes/', include('apps.classes.urls')),
 ]

@@ -20,7 +20,7 @@ class Student(models.Model):
         ("family", "Family"),
         ("other", "Other"),
     )
-    school = models.ForeignKey('school.School', on_delete=models.CASCADE)
+    school = models.ForeignKey('schools.School', on_delete=models.CASCADE)
     joined = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     first_name = models.CharField(max_length=50)
