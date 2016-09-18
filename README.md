@@ -147,3 +147,15 @@ Maildump running on the Vagrant server. The SMTP settings are in
 `config/settings/dev.py`.
 
 Go to http://127.0.0.1:8888/ to see e-mail.
+
+## Database
+
+The development database is SQLite in `config/db/db.sqlite3`.
+
+### Seed
+
+Load the `initial_data` fixture.
+
+```
+python manage.py loaddata initial_data
+```
