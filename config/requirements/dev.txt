@@ -7,3 +7,10 @@ ipython>=5.0.0,<5.1
 sphinx-autobuild>=0.6.0,<0.7
 sphinx-rtd-theme>=0.1.8,<0.2
 maildump>=0.5.4,<0.6
+# FIXME for some reason have to specify these maildump requirements explicitly
+pytz>=2016.6.1
+python-daemon>=2.1.1
+click>=6.6
+Jinja2>=2.8
+itsdangerous>=0.24
+Werkzeug>=0.11.11
