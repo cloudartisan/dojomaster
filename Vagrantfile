@@ -11,6 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 8888, host: 8888
   config.ssh.forward_agent = true
   config.vm.provision "shell", path: "config/vagrant/base.sh"
+  config.vm.provision "shell", path: "config/vagrant/profile.sh"
 
   config.vm.provider "virtualbox" do |v|
     v.memory = 256
