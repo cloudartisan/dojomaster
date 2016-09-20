@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'compressor',
     'allauth',
     'allauth.account',
-    'organizations',
     'overextends',
     # dojomaster application components
     'apps.dashboard',
@@ -45,6 +44,8 @@ INSTALLED_APPS = (
     'apps.schools',
     'apps.students',
     'apps.classes',
+    # organizations templates overridden by dojomaster applications
+    'organizations',
 )
 
 TEMPLATES = [
