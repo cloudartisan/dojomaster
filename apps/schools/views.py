@@ -1,6 +1,5 @@
-from django.shortcuts import render
 from django.views.generic import (ListView, DetailView, UpdateView,
-        CreateView, DeleteView, FormView)
+                                  CreateView, DeleteView, FormView)
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from models import School

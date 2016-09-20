@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from .models import Student
 
+
 class StudentTests(TestCase):
     """Student model tests."""
 
@@ -12,4 +13,3 @@ class StudentTests(TestCase):
     def test_str(self):
         student = Student(first_name='John', last_name='Smith')
         self.assertEquals(str(student), 'John Smith')
-
