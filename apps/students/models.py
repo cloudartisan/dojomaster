@@ -27,15 +27,16 @@ class Student(models.Model):
     last_name = models.CharField(max_length=50)
     gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=0)
     dob = models.DateField('Date of Birth',
-            auto_now=False, auto_now_add=False,
-            blank=True, null=True)
+                           auto_now=False, auto_now_add=False,
+                           blank=True, null=True)
     email = models.EmailField('E-mail Address', blank=True)
     home_phone = PhoneNumberField(blank=True)
     work_phone = PhoneNumberField(blank=True)
     mobile_phone = PhoneNumberField(blank=True)
     contact = models.ForeignKey('students.Contact', null=True)
     contact_relation = models.CharField(max_length=10,
-            choices=CONTACT_RELATION_CHOICES, default="unknown")
+                                        choices=CONTACT_RELATION_CHOICES,
+                                        default="unknown")
 
     class Meta:
         ordering = ('last_name',)
