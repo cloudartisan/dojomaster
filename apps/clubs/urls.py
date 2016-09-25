@@ -17,9 +17,9 @@ from django.conf.urls import url
 import views
 
 urlpatterns = [
-    url(r'^$', views.ListClubView.as_view(), name='clubs-list',),
-    url(r'^(?P<club_pk>[\d]+)/$', views.DetailClubView.as_view(), name='clubs-detail',),
-    url(r'^(?P<club_pk>[\d]+)/edit$', views.UpdateClubView.as_view(), name='clubs-update',),
-    url(r'^add/$', views.CreateClubView.as_view(), name='clubs-create',),
-    url(r'^(?P<club_pk>[\d]+)/delete$', views.DeleteClubView.as_view(), name='clubs-delete',),
+    url(r'^$', views.ClubList.as_view(), name='clubs-list',),
+    url(r'^(?P<club_pk>[\d]+)/$', views.ClubDetail.as_view(), name='club-detail',),
+    url(r'^(?P<club_pk>[\d]+)/edit$', views.ClubUpdate.as_view(), name='club-update',),
+    url(r'^add/$', views.ClubCreate.as_view(), name='club-create',),
+    url(r'^(?P<club_pk>[\d]+)/delete$', views.ClubDelete.as_view(), name='club-delete',),
 ]
