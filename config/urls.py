@@ -32,6 +32,8 @@ urlpatterns += [
     url(r'^dashboard/', include('apps.dashboard.urls')),
     url(r'^clubs/', include('apps.clubs.urls')),
     url(r'^schools/', include('apps.schools.urls')),
-    url(r'^students/', include('apps.students.urls')),
     url(r'^classes/', include('apps.classes.urls')),
+    url(r'^students/', include('apps.students.urls')),
+    url(r'^attendance/', include('apps.attendance.urls')),
+    url(r'^gradings/', include('apps.gradings.urls')),
 ]
