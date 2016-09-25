@@ -1,0 +1,10 @@
+{% extends "attendance_base.html" %}
+{% block content %}
+<h1>Attendance</h1>
+
+<ul>
+    {% for attendance in attendances %}
+    <li><a href="{{ attendance.get_absolute_url }}">{{ attendance }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}
