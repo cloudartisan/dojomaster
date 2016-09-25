@@ -42,8 +42,10 @@ INSTALLED_APPS = (
     'apps.dashboard',
     'apps.clubs',
     'apps.schools',
-    'apps.students',
     'apps.classes',
+    'apps.students',
+    'apps.attendance',
+    'apps.gradings',
     # organizations templates overridden by dojomaster applications
     'organizations',
 )
@@ -133,3 +135,6 @@ ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+# clubs (django-organizations) settings
+INVITATION_BACKEND = 'clubs.backends.CustomInvitations'
