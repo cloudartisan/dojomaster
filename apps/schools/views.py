@@ -5,25 +5,25 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from models import School
 
 
-class ListSchoolView(LoginRequiredMixin, ListView):
+class SchoolList(LoginRequiredMixin, ListView):
     model = School
 
 
-class DetailSchoolView(LoginRequiredMixin, DetailView):
+class SchoolDetail(LoginRequiredMixin, DetailView):
     model = School
 
 
-class UpdateSchoolView(LoginRequiredMixin, UpdateView):
+class SchoolUpdate(LoginRequiredMixin, UpdateView):
     model = School
 
 
-class CreateSchoolView(LoginRequiredMixin, CreateView):
+class SchoolCreate(LoginRequiredMixin, CreateView):
     model = School
 
 
-class DeleteSchoolView(LoginRequiredMixin, DeleteView):
+class SchoolDelete(LoginRequiredMixin, DeleteView):
     model = School
 
 
-class FormSchoolView(LoginRequiredMixin, FormView):
+class SchoolForm(LoginRequiredMixin, FormView):
     model = School
