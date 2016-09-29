@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'overextends',
     # dojomaster application components
+    'apps.users',
     'apps.dashboard',
     'apps.clubs',
     'apps.schools',
@@ -130,11 +131,16 @@ SITE_NAME = 'DojoMaster'
 GRAPPELLI_ADMIN_TITLE = SITE_NAME
 
 # allauth settings
-LOGIN_REDIRECT_URL = '/'
-ACCOUNT_LOGOUT_ON_GET = True
+LOGIN_REDIRECT_URL = '/dashboard'
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 3
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_LOGOUT_ON_GET = True
 
 # For password hashing use the more secure bcrypt if it's available
 PASSWORD_HASHERS = [
@@ -169,7 +175,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # User/authentication customisation
-AUTH_USER_MODEL = 'base.DojoMasterUser'
+AUTH_USER_MODEL = 'users.DojoMasterUser'
 
 # clubs (django-organizations) settings
 INVITATION_BACKEND = 'clubs.backends.CustomInvitations'
