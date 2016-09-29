@@ -7,4 +7,4 @@ django-grappelli>=2.8.1,<2.9
 django-organizations>=0.8.0,<0.9
 django-overextends>=0.4.2,<0.5
 django-phonenumber-field>=1.1.0,<1.2
-six>=1.10.0,<1.11
+bcrypt>=3.1.1,<3.2
