@@ -72,24 +72,24 @@ BASE_PATH=`dirname "${BASH_SOURCE}"`
 PWD=`pwd`
 if [[ "${BASE_PATH}" == "${PWD}" ]]
 then
-  mkvirtualenv dojomaster
-  workon dojomaster
+  mkvirtualenv runmydojo
+  workon runmydojo
   pip install -r config/requirements/dev.txt
 fi
 ```
 
 ### Use
 
-Now, whenever you cd to the top-level of the dojomaster project you
+Now, whenever you cd to the top-level of the runmydojo project you
 should have your virtual environment initialised. E.g.:
 
 ```
-neuromancer:~ $ cd git/cloudartisan/dojomaster/
-New python executable in /Users/david/.virtualenvs/dojomaster/bin/python2.7
-Not overwriting existing python script /Users/david/.virtualenvs/dojomaster/bin/python (you must use /Users/david/.virtualenvs/dojomaster/bin/python2.7)
+neuromancer:~ $ cd git/cloudartisan/runmydojo/
+New python executable in /Users/david/.virtualenvs/runmydojo/bin/python2.7
+Not overwriting existing python script /Users/david/.virtualenvs/runmydojo/bin/python (you must use /Users/david/.virtualenvs/runmydojo/bin/python2.7)
 Installing setuptools, pip, wheel...done.
 [...]
-(dojomaster) neuromancer:~/git/cloudartisan/dojomaster (master)$
+(runmydojo) neuromancer:~/git/cloudartisan/runmydojo (master)$
 ```
 
 # Development
@@ -106,7 +106,7 @@ flake8 --install-hook
 
 ## Frontend Framework
 
-DojoMaster uses Twitter Bootstrap-SASS (v3.2.0).
+Twitter Bootstrap-SASS (v3.2.0).
 
 ## Handling E-mail
 
