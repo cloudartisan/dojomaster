@@ -2,7 +2,6 @@ from django.conf.urls import include, url
 from django.views.generic import TemplateView
 from django.contrib import admin
 from django.conf import settings
-from apps.base.views import NameChange
 
 handler500 = 'utils.views.server_error'
 
@@ -24,11 +23,11 @@ urlpatterns += [
 urlpatterns += [
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^accounts/name/$', NameChange.as_view(), name='account_change_name'),
 ]
 
 # Application URLs
 urlpatterns += [
+    url(r'^accounts/', include('apps.accounts.urls')),
     url(r'^dashboard/', include('apps.dashboard.urls')),
     url(r'^clubs/', include('apps.clubs.urls')),
     url(r'^schools/', include('apps.schools.urls')),
