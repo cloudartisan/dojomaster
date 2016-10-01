@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class GradingsConfig(AppConfig):
-    name = 'gradings'
+    name = 'apps.gradings'

@@ -4,4 +4,8 @@ from django.apps import AppConfig
 
 
 class AccountsConfig(AppConfig):
-    name = 'accounts'
+    name = 'apps.accounts'
+    verbose_name = 'RunMyDojo Accounts'
+
+    def ready(self):
+        from . import signals
