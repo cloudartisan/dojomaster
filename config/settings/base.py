@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'overextends',
     # dojomaster application components
-    'apps.users',
+    'apps.accounts',
     'apps.dashboard',
     'apps.clubs',
     'apps.schools',
@@ -127,7 +127,7 @@ STATICFILES_FINDERS = (
 )
 
 SITE_ID = 1
-SITE_NAME = 'DojoMaster'
+SITE_NAME = 'RunMyDojo'
 GRAPPELLI_ADMIN_TITLE = SITE_NAME
 
 # allauth settings
@@ -175,7 +175,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # User/authentication customisation
-AUTH_USER_MODEL = 'users.DojoMasterUser'
+AUTH_USER_MODEL = 'accounts.UserAccount'
 
 # clubs (django-organizations) settings
 INVITATION_BACKEND = 'clubs.backends.CustomInvitations'
