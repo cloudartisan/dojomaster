@@ -131,6 +131,7 @@ SITE_NAME = 'RunMyDojo'
 GRAPPELLI_ADMIN_TITLE = SITE_NAME
 
 # allauth settings
+ACCOUNT_ADAPTER = 'apps.accounts.adapter.AccountAdapter'
 LOGIN_REDIRECT_URL = '/dashboard'
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 3
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
