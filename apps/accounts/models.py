@@ -1,10 +1,12 @@
 from django.db import models
+from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser, PermissionsMixin
 )
 from allauth.account.models import EmailAddress
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class UserAccountManager(BaseUserManager):
@@ -32,7 +34,7 @@ class UserAccountManager(BaseUserManager):
 @python_2_unicode_compatible
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
-        verbose_name=_('e-mail address'),
+        verbose_name=_('E-mail Address'),
         max_length=255,
         unique=True,
         blank=False,
@@ -42,7 +44,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
         },
     )
     is_staff = models.BooleanField(
-        verbose_name=_('staff status'),
+        verbose_name=_('Staff Status'),
         default=False,
         help_text=_(
             'Designates whether the user can log into this admin site.'
@@ -56,12 +58,12 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
             'Unselect this instead of deleting accounts.'
         ),
     )
-    joined = models.DateTimeField(
-        verbose_name=_('date joined'),
+    date_joined = models.DateTimeField(
+        verbose_name=_('Date Joined'),
         auto_now_add=True,
     )
-    updated = models.DateTimeField(
-        verbose_name=_('date updated'),
+    date_updated = models.DateTimeField(
+        verbose_name=_('Date Updated'),
         auto_now=True,
     )
 
@@ -90,7 +92,12 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 @python_2_unicode_compatible
 class UserAccountProfile(models.Model):
     user = models.OneToOneField(UserAccount, related_name='profile')
-    picture = models.ImageField(upload_to='profile_images', blank=True)
+    picture = models.ImageField(
+        verbose_name=_('Profile Picture'),
+        upload_to='profile_images',
+        blank=True
+    )
+    phone = PhoneNumberField(blank=True)
 
     def __str__(self):
         # __unicode__ on Python 2

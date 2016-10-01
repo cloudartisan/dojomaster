@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 
 from .forms import UserChangeForm
-from .models import DojoMasterUser
+from .models import UserAccount
 
 
 class UserProfileChange(generic.FormView):
@@ -12,7 +12,7 @@ class UserProfileChange(generic.FormView):
 
     def get_form_kwargs(self):
         kwargs = super(UserProfileChange, self).get_form_kwargs()
-        kwargs["instance"] = DojoMasterUser.objects.get(pk=self.request.user.pk)
+        kwargs["instance"] = UserAccount.objects.get(pk=self.request.user.pk)
         return kwargs
 
     def form_valid(self, form):

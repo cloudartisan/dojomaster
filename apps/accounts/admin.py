@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models import UserAccount
@@ -34,10 +34,7 @@ class UserAdmin(BaseUserAdmin):
     ordering = ('email',)
     filter_horizontal = ()
 
-# Unregister the User model since we're not using it
-admin.site.unregister(User)
-
-# ... and register the new UserAdmin for UserAccount instead
+# Register the new UserAdmin for UserAccount
 admin.site.register(UserAccount, UserAdmin)
 
 # ... and, since we're not using Django's built-in permissions,

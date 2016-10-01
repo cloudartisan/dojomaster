@@ -1,7 +1,7 @@
 from django import forms
 
 
-from .models import DojoMasterUser
+from .models import UserAccount
 
 
 class UserCreationForm(forms.ModelForm):
@@ -13,7 +13,7 @@ class UserCreationForm(forms.ModelForm):
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
-        model = DojoMasterUser
+        model = UserAccount
         fields = ('email',)
 
     def clean_password2(self):
@@ -38,5 +38,5 @@ class UserChangeForm(forms.ModelForm):
     A form for updating users. Includes all the fields on the user.
     """
     class Meta:
-        model = DojoMasterUser
+        model = UserAccount
         fields = ()
