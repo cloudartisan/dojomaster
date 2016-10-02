@@ -9,25 +9,33 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class UserAccountManager(BaseUserManager):
-    def create_user(self, email, password=None):
-        """
-        Creates and saves a User with the given email and password.
-        """
+    def _create_user(self, email, password=None, **extra_fields):
         if not email:
             raise ValueError('Users must have an email address')
-        user = self.model(email=self.normalize_email(email))
+        user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password):
+    def create_user(self, email, password=None, **extra_fields):
+        """
+        Creates and saves a User with the given email and password.
+        """
+        extra_fields.setdefault('is_staff', False)
+        extra_fields.setdefault('is_superuser', False)
+        return self._create_user(email, password, **extra_fields)
+
+    def create_superuser(self, email, password, **extra_fields):
         """
         Creates and saves a superuser with the given email and password.
         """
-        user = self.create_user(email, password=password)
-        user.is_admin = True
-        user.save(using=self._db)
-        return user
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+        return self._create_user(email, password, **extra_fields)
 
 
 @python_2_unicode_compatible
@@ -41,6 +49,13 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
         error_messages={
             'unique': _("A user with that e-mail address already exists."),
         },
+    )
+    is_superuser = models.BooleanField(
+        verbose_name=_('Superuser Status'),
+        default=False,
+        help_text=_(
+            'Designates whether the user has superuser privileges.'
+        ),
     )
     is_staff = models.BooleanField(
         verbose_name=_('Staff Status'),
