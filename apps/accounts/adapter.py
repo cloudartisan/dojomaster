@@ -1,7 +1,7 @@
 from allauth.account.adapter import DefaultAccountAdapter
 from django.conf import settings
+from django.utils import timezone
 from django.shortcuts import resolve_url
-from datetime import datetime
 
 
 class AccountAdapter(DefaultAccountAdapter):
@@ -14,7 +14,7 @@ class AccountAdapter(DefaultAccountAdapter):
         """
         threshold = 90
         assert request.user.is_authenticated()
-        if (datetime.now() - request.user.last_login).seconds < threshold:
+        if (timezone.now() - request.user.last_login).seconds < threshold:
             url = '/clubs/add/'
         else:
             url = settings.LOGIN_REDIRECT_URL
