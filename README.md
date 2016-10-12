@@ -78,6 +78,20 @@ then
 fi
 ```
 
+If you have any problems installing `pillow` or other packages it might be
+because the XCode command-line tools are not installed. To install the XCode
+command-line tools:
+
+```
+xcode-select --install
+```
+
+It might also be that JPEG librares are missing. To install them:
+
+```
+brew install jpeg
+```
+
 ### Use
 
 Now, whenever you cd to the top-level of the runmydojo project you
