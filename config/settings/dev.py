@@ -5,13 +5,17 @@ DEBUG = True
 
 INTERNAL_IPS = ('127.0.0.1', '10.0.2.2')
 
-# Use Maildump for development environments, see README.md for instructions.
-# Don't use this in production!
-EMAIL_HOST = '127.0.0.1'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 2525
-EMAIL_USE_TLS = False
+# Writes the e-mail that would be sent to standard output. Don't
+# use this in production!
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Uncomment if using Maildump for development environments, see
+# README.md for instructions. Don't use this in production!
+# EMAIL_HOST = '127.0.0.1'
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_PORT = 2525
+# EMAIL_USE_TLS = False
 
 # ADMINS = (
 #     ('Your Name', 'username@example.com'),
