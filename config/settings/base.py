@@ -179,4 +179,4 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'accounts.UserAccount'
 
 # clubs (django-organizations) settings
-INVITATION_BACKEND = 'clubs.backends.CustomInvitations'
+INVITATION_BACKEND = 'apps.clubs.backends.CustomInvitations'
